@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             backgroundColor: Color(0xFF2B68F7), // Same as "Add Review" button
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(100),
             ),
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
