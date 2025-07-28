@@ -5,11 +5,9 @@ import 'package:medi_link/controller/user%20controller/splash_2_controller.dart'
 
 class splash_screen extends StatelessWidget {
   final Splash_controller splashcontroller;
-  final Splash2Controller splash2Controller;
 
-  splash_screen({super.key})
-    : splashcontroller = Get.put(Splash_controller()),
-      splash2Controller = Get.put(Splash2Controller());
+  splash_screen({super.key}) : splashcontroller = Get.put(Splash_controller());
+  //  splash2Controller = Get.put(Splash2Controller());
 
   @override
   Widget build(BuildContext context) {

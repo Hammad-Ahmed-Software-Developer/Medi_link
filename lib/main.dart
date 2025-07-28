@@ -37,11 +37,11 @@ class MyApp extends StatelessWidget {
               theme: ThemeData(
                 fontFamily: 'Poppins',
                 colorScheme: ColorScheme.fromSeed(
-                  seedColor: const Color(0xFF179CE9),
+                  seedColor: Color(0xFF179CE9),
                   brightness: Brightness.light,
                 ),
                 scaffoldBackgroundColor: Colors.white,
-                appBarTheme: const AppBarTheme(
+                appBarTheme: AppBarTheme(
                   backgroundColor: Colors.white,
                   elevation: 0,
                   iconTheme: IconThemeData(color: Color(0xFF179CE9)),
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                textTheme: const TextTheme(
+                textTheme: TextTheme(
                   titleMedium: TextStyle(
                     color: Colors.black87,
                     fontWeight: FontWeight.w600,
@@ -76,7 +76,7 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                 ),
-                bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+                bottomNavigationBarTheme: BottomNavigationBarThemeData(
                   backgroundColor: Colors.white,
                   selectedItemColor: Color(0xFF179CE9),
                   unselectedItemColor: Colors.black26,
@@ -87,11 +87,8 @@ class MyApp extends StatelessWidget {
                   backgroundColor: Colors.grey.shade200,
                   selectedColor: Color(0xFF179CE9),
                   disabledColor: Colors.grey.shade100,
-                  labelStyle: const TextStyle(color: Colors.black),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 6,
-                  ),
+                  labelStyle: TextStyle(color: Colors.black),
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),

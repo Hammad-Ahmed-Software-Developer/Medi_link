@@ -8,7 +8,7 @@ class Splash_controller extends GetxController {
     // Simulate a delay for splash screen
     Future.delayed(Duration(seconds: 3), () {
       // Navigate to the home page after the delay
-      Get.offAll(() => Splash2(), transition: Transition.leftToRight);
+      Get.offAll(() => splash_2(), transition: Transition.leftToRight);
     });
   }
 }

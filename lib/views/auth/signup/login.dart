@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:medi_link/views/home_screen.dart';
 
 class logIn extends StatelessWidget {
   const logIn({super.key});
@@ -65,62 +67,12 @@ class logIn extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 20.h),
+                SizedBox(height: 10.h),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Password",
-                      style: TextStyle(
-                        fontSize: 22.sp,
-                        fontWeight: FontWeight.w700,
-                        color: Color.fromARGB(255, 0, 0, 0),
-                      ),
-                    ),
-                    SizedBox(height: 10.h),
-                    // Obx(
-                    //   () => SizedBox(
-                    //     width: 350.w,
-                    //     height: 50.h,
-                    //     child: TextField(
-                    //       obscureText:
-                    //           !signUpController.isPasswordVisible.value,
-                    //       controller: signUpController.passwordController,
-                    //       decoration: InputDecoration(
-                    //         suffixIcon: IconButton(
-                    //           icon: Icon(
-                    //             signUpController.isPasswordVisible.value
-                    //                 ? Icons.visibility
-                    //                 : Icons.visibility_off,
-                    //             color: Color.fromARGB(255, 60, 137, 224),
-                    //           ),
-                    //           onPressed: () {
-                    //             signUpController.togglePasswordVisibility();
-                    //           },
-                    //         ),
-                    //         filled: true,
-                    //         fillColor: Color.fromARGB(
-                    //           66,
-                    //           177,
-                    //           211,
-                    //           255,
-                    //         ),
-                    //         hintStyle: TextStyle(
-                    //           color: Color.fromARGB(255, 60, 137, 224),
-                    //           fontSize: 20.sp,
-                    //           fontWeight: FontWeight.w400,
-                    //         ),
-                    //         hintText: '*********',
-                    //         border: OutlineInputBorder(
-                    //           borderRadius: BorderRadius.circular(12.r),
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
-                  ],
+                  children: [SizedBox(height: 10.h)],
                 ),
-                SizedBox(height: 20.h),
+                // SizedBox(height: 20.h),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -232,6 +184,7 @@ class logIn extends StatelessWidget {
                   width: 200.w,
                   padding: EdgeInsets.all(8.w),
                   child: Text.rich(
+                    textAlign: TextAlign.center,
                     TextSpan(
                       text: 'By continue you agree to ',
                       style: TextStyle(fontSize: 12.sp, color: Colors.black),
@@ -313,7 +266,9 @@ class logIn extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(() => HomeScreen());
+                      },
                       icon: Icon(
                         Icons.fingerprint,
                         color: Colors.blue,
@@ -326,6 +281,8 @@ class logIn extends StatelessWidget {
                   width: 200.w,
                   padding: EdgeInsets.all(8.w),
                   child: Text.rich(
+                    textAlign: TextAlign.center,
+
                     TextSpan(
                       text: 'already have an account?',
                       style: TextStyle(fontSize: 12.sp, color: Colors.black),

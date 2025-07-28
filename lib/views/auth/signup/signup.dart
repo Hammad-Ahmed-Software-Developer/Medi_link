@@ -227,6 +227,7 @@ class Sign_up extends StatelessWidget {
                   width: 200.w,
                   padding: EdgeInsets.all(8.w),
                   child: Text.rich(
+                    textAlign: TextAlign.center,
                     TextSpan(
                       text: 'By continue you agree to ',
                       style: TextStyle(fontSize: 12.sp, color: Colors.black),
@@ -256,7 +257,7 @@ class Sign_up extends StatelessWidget {
                 SizedBox(height: 10.h),
                 Obx(
                   () => SizedBox(
-                    height: 40.h,
+                    height: 50.h,
                     width: 250.w,
                     child:
                         signUpController.isLoading.value
@@ -274,7 +275,7 @@ class Sign_up extends StatelessWidget {
                                 'Sign Up',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 20.sp,
+                                  fontSize: 18.sp,
                                 ),
                               ),
                             ),
@@ -321,6 +322,7 @@ class Sign_up extends StatelessWidget {
                   width: 200.w,
                   padding: EdgeInsets.all(8.w),
                   child: Text.rich(
+                    textAlign: TextAlign.center,
                     TextSpan(
                       text: 'already have an account?',
                       style: TextStyle(fontSize: 12.sp, color: Colors.black),
