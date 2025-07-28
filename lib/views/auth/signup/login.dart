@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:medi_link/controller/auth%20controller/signup_controller.dart';
 
-class Sign_up extends StatelessWidget {
-  Sign_up({super.key});
+class logIn extends StatelessWidget {
+  const logIn({super.key});
 
-  final signUpController = Get.put(SignupController());
-
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Center(
-          child: const Text(
-            'New Account',
-            style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.w700,
-              color: Color.fromARGB(255, 23, 107, 233),
+          child: Padding(
+            padding: EdgeInsets.only(right: 45.w),
+            child: Text(
+              'Hello!',
+              style: TextStyle(
+                fontSize: 28.sp,
+                fontWeight: FontWeight.w700,
+                color: Color.fromARGB(255, 23, 107, 233),
+              ),
             ),
           ),
         ),
@@ -30,14 +30,14 @@ class Sign_up extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(height: 10.h),
+                SizedBox(height: 20.h),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "Full name",
                       style: TextStyle(
-                        fontSize: 20.sp,
+                        fontSize: 22.sp,
                         fontWeight: FontWeight.w700,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -45,9 +45,9 @@ class Sign_up extends StatelessWidget {
                     SizedBox(height: 10.h),
                     SizedBox(
                       width: 350.w,
-                      height: 40.h,
+                      height: 50.h,
                       child: TextField(
-                        controller: signUpController.usernameController,
+                        // controller: signUpController.usernameController,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Color.fromARGB(66, 177, 211, 255),
@@ -65,64 +65,69 @@ class Sign_up extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 10.h),
+                SizedBox(height: 20.h),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "Password",
                       style: TextStyle(
-                        fontSize: 20.sp,
+                        fontSize: 22.sp,
                         fontWeight: FontWeight.w700,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
                     ),
                     SizedBox(height: 10.h),
-                    Obx(
-                      () => SizedBox(
-                        width: 350.w,
-                        height: 40.h,
-                        child: TextField(
-                          obscureText:
-                              !signUpController.isPasswordVisible.value,
-                          controller: signUpController.passwordController,
-                          decoration: InputDecoration(
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                signUpController.isPasswordVisible.value
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                                color: Color.fromARGB(255, 60, 137, 224),
-                              ),
-                              onPressed: () {
-                                signUpController.togglePasswordVisibility();
-                              },
-                            ),
-                            filled: true,
-                            fillColor: Color.fromARGB(66, 177, 211, 255),
-                            hintStyle: TextStyle(
-                              color: Color.fromARGB(255, 60, 137, 224),
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.w400,
-                            ),
-                            hintText: '*********',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12.r),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // Obx(
+                    //   () => SizedBox(
+                    //     width: 350.w,
+                    //     height: 50.h,
+                    //     child: TextField(
+                    //       obscureText:
+                    //           !signUpController.isPasswordVisible.value,
+                    //       controller: signUpController.passwordController,
+                    //       decoration: InputDecoration(
+                    //         suffixIcon: IconButton(
+                    //           icon: Icon(
+                    //             signUpController.isPasswordVisible.value
+                    //                 ? Icons.visibility
+                    //                 : Icons.visibility_off,
+                    //             color: Color.fromARGB(255, 60, 137, 224),
+                    //           ),
+                    //           onPressed: () {
+                    //             signUpController.togglePasswordVisibility();
+                    //           },
+                    //         ),
+                    //         filled: true,
+                    //         fillColor: Color.fromARGB(
+                    //           66,
+                    //           177,
+                    //           211,
+                    //           255,
+                    //         ),
+                    //         hintStyle: TextStyle(
+                    //           color: Color.fromARGB(255, 60, 137, 224),
+                    //           fontSize: 20.sp,
+                    //           fontWeight: FontWeight.w400,
+                    //         ),
+                    //         hintText: '*********',
+                    //         border: OutlineInputBorder(
+                    //           borderRadius: BorderRadius.circular(12.r),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
-                SizedBox(height: 10.h),
+                SizedBox(height: 20.h),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "Email",
                       style: TextStyle(
-                        fontSize: 20.sp,
+                        fontSize: 22.sp,
                         fontWeight: FontWeight.w700,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -130,10 +135,10 @@ class Sign_up extends StatelessWidget {
                     SizedBox(height: 10.h),
                     SizedBox(
                       width: 350.w,
-                      height: 40.h,
+                      height: 50.h,
                       child: TextField(
                         keyboardType: TextInputType.emailAddress,
-                        controller: signUpController.email,
+                        // controller: signUpController.email,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Color.fromARGB(66, 177, 211, 255),
@@ -151,14 +156,14 @@ class Sign_up extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 10.h),
+                SizedBox(height: 20.h),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "Mobile Number",
                       style: TextStyle(
-                        fontSize: 20.sp,
+                        fontSize: 22.sp,
                         fontWeight: FontWeight.w700,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -166,10 +171,10 @@ class Sign_up extends StatelessWidget {
                     SizedBox(height: 10.h),
                     SizedBox(
                       width: 350.w,
-                      height: 40.h,
+                      height: 50.h,
                       child: TextField(
                         keyboardType: TextInputType.phone,
-                        controller: signUpController.mobileNo,
+                        // controller: signUpController.mobileNo,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Color.fromARGB(66, 177, 211, 255),
@@ -187,14 +192,14 @@ class Sign_up extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 10.h),
+                SizedBox(height: 20.h),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "Date Of Birth",
                       style: TextStyle(
-                        fontSize: 20.sp,
+                        fontSize: 22.sp,
                         fontWeight: FontWeight.w700,
                         color: Color.fromARGB(255, 0, 0, 0),
                       ),
@@ -202,9 +207,9 @@ class Sign_up extends StatelessWidget {
                     SizedBox(height: 10.h),
                     SizedBox(
                       width: 350.w,
-                      height: 40.h,
+                      height: 50.h,
                       child: TextField(
-                        controller: signUpController.dob,
+                        // controller: signUpController.dob,
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Color.fromARGB(66, 177, 211, 255),
@@ -254,33 +259,33 @@ class Sign_up extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 10.h),
-                Obx(
-                  () => SizedBox(
-                    height: 40.h,
-                    width: 250.w,
-                    child:
-                        signUpController.isLoading.value
-                            ? CircularProgressIndicator()
-                            : ElevatedButton(
-                              onPressed: () {
-                                signUpController.signUp();
-                              },
-                              style: ElevatedButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.r),
-                                ),
-                              ),
-                              child: Text(
-                                'Sign Up',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20.sp,
-                                ),
-                              ),
-                            ),
-                  ),
-                ),
-                SizedBox(height: 10.h),
+                // Obx(
+                //   () => SizedBox(
+                //     height: 50.h,
+                //     width: 250.w,
+                //     child:
+                //         signUpController.isLoading.value
+                //             ? CircularProgressIndicator()
+                //             : ElevatedButton(
+                //               onPressed: () {
+                //                 signUpController.signUp();
+                //               },
+                //               style: ElevatedButton.styleFrom(
+                //                 shape: RoundedRectangleBorder(
+                //                   borderRadius: BorderRadius.circular(30.r),
+                //                 ),
+                //               ),
+                //               child: const Text(
+                //                 'Sign Up',
+                //                 style: TextStyle(
+                //                   color: Colors.white,
+                //                   fontSize: 24.sp,
+                //                 ),
+                //               ),
+                //             ),
+                //   ),
+                // ),
+                SizedBox(height: 20.h),
                 Text(
                   "or sign up with",
                   style: TextStyle(
@@ -304,7 +309,7 @@ class Sign_up extends StatelessWidget {
                       icon: Icon(
                         Icons.facebook_rounded,
                         color: Colors.blue,
-                        size: 40.sp,
+                        size: 50.sp,
                       ),
                     ),
                     IconButton(
@@ -312,7 +317,7 @@ class Sign_up extends StatelessWidget {
                       icon: Icon(
                         Icons.fingerprint,
                         color: Colors.blue,
-                        size: 40.sp,
+                        size: 50.sp,
                       ),
                     ),
                   ],
