@@ -37,6 +37,7 @@ dependencies:
   get: ^4.7.2
   http: ^1.4.0
   flutter_screenutil: ^5.9.3
+  local_auth: ^2.3.0
 
 dev_dependencies:
   flutter_test:

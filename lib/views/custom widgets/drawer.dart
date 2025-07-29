@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medi_link/views/home_screen.dart';
+import 'package:medi_link/views/auth/signup/login.dart';
+import 'package:medi_link/views/user_views/home_screen.dart';
 import 'package:medi_link/views/splash%20screen/second_splash.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -52,7 +53,7 @@ class AppDrawer extends StatelessWidget {
             title: const Text('Logout'),
             onTap: () {
               // Implement logout logic here
-              Get.offAll(() => splash_2());
+              Get.offAll(() => logIn());
             },
           ),
         ],

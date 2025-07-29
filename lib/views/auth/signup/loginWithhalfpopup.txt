@@ -187,29 +187,75 @@ class logIn extends StatelessWidget {
                 ),
                 Obx(
                   () => IconButton(
-                    onPressed: () async {
-                      final LocalAuthentication localAuth =
-                          LocalAuthentication();
-                      bool isAvailable = await localAuth.canCheckBiometrics;
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: false,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(20.r),
+                          ),
+                        ),
+                        builder: (BuildContext context) {
+                          return Container(
+                            height: MediaQuery.of(context).size.height * 0.3.h,
+                            width: double.infinity.w,
+                            padding: EdgeInsets.all(20.w),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Fingerprint Authentication",
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(height: 20.h),
+                                Obx(
+                                  () => IconButton(
+                                    onPressed: () async {
+                                      final LocalAuthentication localAuth =
+                                          LocalAuthentication();
+                                      bool isAvailable =
+                                          await localAuth.canCheckBiometrics;
 
-                      if (isAvailable) {
-                        bool didAuthenticate = await localAuth.authenticate(
-                          localizedReason: 'Please authenticate to continue',
-                        );
+                                      if (isAvailable) {
+                                        bool didAuthenticate = await localAuth
+                                            .authenticate(
+                                              localizedReason:
+                                                  'Please authenticate to continue',
+                                            );
 
-                        if (didAuthenticate) {
-                          fingerprintColor.value = Colors.green;
-                          await Future.delayed(Duration(milliseconds: 800));
-                          if (context.mounted) {
-                            Navigator.pop(context);
-                            Get.to(() => HomeScreen());
-                          }
-                        } else {
-                          fingerprintColor.value = Colors.red;
-                        }
-                      } else {
-                        fingerprintColor.value = Colors.red;
-                      }
+                                        if (didAuthenticate) {
+                                          fingerprintColor.value = Colors.green;
+                                          await Future.delayed(
+                                            Duration(milliseconds: 800),
+                                          );
+                                          if (context.mounted) {
+                                            Navigator.pop(context);
+                                            Get.to(() => HomeScreen());
+                                          }
+                                        } else {
+                                          fingerprintColor.value = Colors.red;
+                                        }
+                                      } else {
+                                        fingerprintColor.value = Colors.red;
+                                      }
+                                    },
+                                    icon: Icon(
+                                      Icons.fingerprint_outlined,
+                                      color: fingerprintColor.value,
+                                      size: 40.sp,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 20.h),
+                              ],
+                            ),
+                          );
+                        },
+                      );
                     },
                     icon: Container(
                       width: 60.w,

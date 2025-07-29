@@ -23,4 +23,19 @@ class UserRepository {
       };
     }
   }
+
+  Future<Map<String, dynamic>> loginUser(loginModel user) async {
+    final response = await http.post(
+      Uri.parse('http://10.0.2.2/medi_link_api/login_api.php'),
+      body: user.toJson(),
+    );
+    if (response.statusCode == 200) {
+      return json.decode(response.body);
+    } else {
+      return {
+        'success': "false",
+        'message': 'Server error: ${response.statusCode}',
+      };
+    }
+  }
 }

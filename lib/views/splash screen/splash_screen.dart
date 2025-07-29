@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medi_link/controller/user%20controller/splash%20controller.dart';
-import 'package:medi_link/controller/user%20controller/splash_2_controller.dart';
 
 class splash_screen extends StatelessWidget {
   final Splash_controller splashcontroller;
