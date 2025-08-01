@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:local_auth/local_auth.dart';
 import 'package:medi_link/controller/auth%20controller/login_controller.dart';
-import 'package:medi_link/views/user_views/home_screen.dart';
+import 'package:medi_link/views/auth/signup/forget_password.dart';
+import 'package:medi_link/views/auth/signup/signup.dart';
 
 class logIn extends StatelessWidget {
   logIn({super.key});
 
-  var fingerprintColor = Colors.blue.obs;
   var loginController = Get.put((LoginController()));
 
   @override
@@ -144,7 +143,9 @@ class logIn extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.only(left: 220.w),
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(() => ForgetPassword());
+                          },
                           child: Text(
                             "Forget Password",
                             style: TextStyle(
@@ -187,29 +188,8 @@ class logIn extends StatelessWidget {
                 ),
                 Obx(
                   () => IconButton(
-                    onPressed: () async {
-                      final LocalAuthentication localAuth =
-                          LocalAuthentication();
-                      bool isAvailable = await localAuth.canCheckBiometrics;
-
-                      if (isAvailable) {
-                        bool didAuthenticate = await localAuth.authenticate(
-                          localizedReason: 'Please authenticate to continue',
-                        );
-
-                        if (didAuthenticate) {
-                          fingerprintColor.value = Colors.green;
-                          await Future.delayed(Duration(milliseconds: 800));
-                          if (context.mounted) {
-                            Navigator.pop(context);
-                            Get.to(() => HomeScreen());
-                          }
-                        } else {
-                          fingerprintColor.value = Colors.red;
-                        }
-                      } else {
-                        fingerprintColor.value = Colors.red;
-                      }
+                    onPressed: () {
+                      loginController.login_fingerprint();
                     },
                     icon: Container(
                       width: 60.w,
@@ -220,7 +200,7 @@ class logIn extends StatelessWidget {
                       ),
                       child: Icon(
                         Icons.fingerprint_outlined,
-                        color: fingerprintColor.value,
+                        color: loginController.fingc_color.value,
                         size: 40.sp,
                       ),
                     ),
@@ -229,24 +209,35 @@ class logIn extends StatelessWidget {
 
                 SizedBox(height: 20.h),
                 Container(
-                  width: 200.w,
+                  width: 300.w,
                   padding: EdgeInsets.all(8.w),
-                  child: Text.rich(
-                    textAlign: TextAlign.center,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text.rich(
+                        textAlign: TextAlign.center,
 
-                    TextSpan(
-                      text: "Don't have an account? ",
-                      style: TextStyle(fontSize: 12.sp, color: Colors.black),
-                      children: [
                         TextSpan(
-                          text: 'Sign up',
+                          text: "Don't have an account?",
                           style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 12.sp,
+                            color: Colors.black,
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Get.to(() => Sign_up());
+                        },
+                        child: Text(
+                          "Sign Up",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            color: Color.fromARGB(255, 8, 102, 245),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

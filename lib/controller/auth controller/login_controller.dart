@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:local_auth/local_auth.dart';
 import 'package:medi_link/model/api/signup_Api.dart';
 import 'package:medi_link/model/auth%20model/signup_model.dart';
 import 'package:medi_link/views/user_views/home_screen.dart';
@@ -10,12 +11,33 @@ class LoginController extends GetxController {
   var isLoading = false.obs;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  var fingc_color = Color.fromARGB(255, 60, 137, 224).obs;
 
   void togglePasswordVisibility() {
     obscureText.value = !obscureText.value;
   }
 
-  void login_fingerprint() {
+  Future<void> login_fingerprint() async {
+    LocalAuthentication localAuth = LocalAuthentication();
+    bool isAvailable = await localAuth.canCheckBiometrics;
+
+    if (isAvailable) {
+      bool didAuthenticate = await localAuth.authenticate(
+        localizedReason: 'Please authenticate to continue',
+      );
+
+      if (didAuthenticate) {
+        fingc_color.value = Color.fromARGB(255, 112, 245, 3);
+        await Future.delayed(Duration(milliseconds: 800));
+
+        Get.to(() => HomeScreen());
+      }
+      else {
+        fingc_color.value = Color.fromARGB(255, 245, 3, 3);
+        Get.snackbar("Authentication Failed", "Please try again");
+      }
+    }
+
     print("Fingerprint login initiated");
   }
 
