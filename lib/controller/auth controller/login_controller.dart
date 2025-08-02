@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:local_auth/local_auth.dart';
@@ -6,12 +8,12 @@ import 'package:medi_link/model/auth%20model/signup_model.dart';
 import 'package:medi_link/views/user_views/home_screen.dart';
 
 class LoginController extends GetxController {
-  var repository = UserRepository();
-  var obscureText = true.obs;
-  var isLoading = false.obs;
   TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
   var fingc_color = Color.fromARGB(255, 60, 137, 224).obs;
+  var isLoading = false.obs;
+  var obscureText = true.obs;
+  TextEditingController passwordController = TextEditingController();
+  var repository = UserRepository();
 
   void togglePasswordVisibility() {
     obscureText.value = !obscureText.value;
@@ -31,8 +33,7 @@ class LoginController extends GetxController {
         await Future.delayed(Duration(milliseconds: 800));
 
         Get.to(() => HomeScreen());
-      }
-      else {
+      } else {
         fingc_color.value = Color.fromARGB(255, 245, 3, 3);
         Get.snackbar("Authentication Failed", "Please try again");
       }
@@ -64,7 +65,10 @@ class LoginController extends GetxController {
 
       // Navigate to another page or perform any other action
     } else {
-      // Handle error
+      print(response['success']);
+      print(response['message']);
+      // debugger();
+
       Get.snackbar('Error', response['message'] ?? 'Signup failed');
     }
   }
