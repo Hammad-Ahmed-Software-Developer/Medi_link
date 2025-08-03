@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:medi_link/views/auth/signup/login.dart';
 import 'package:medi_link/views/splash%20screen/splash_screen.dart';
+import 'package:medi_link/views/user_views/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -95,7 +97,7 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               debugShowCheckedModeBanner: false,
-              home: splash_screen(),
+              home: HomeScreen(),
             );
           },
         );

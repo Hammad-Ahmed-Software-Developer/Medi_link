@@ -16,20 +16,17 @@ class logIn extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Center(
-          child: Padding(
-            padding: EdgeInsets.only(right: 45.w),
-            child: Text(
-              'Hello!',
-              style: TextStyle(
-                fontSize: 28.sp,
-                fontWeight: FontWeight.w700,
-                color: Color.fromARGB(255, 8, 102, 245),
-              ),
+          child: Text(
+            'Hello!',
+            style: TextStyle(
+              fontSize: 28.sp,
+              fontWeight: FontWeight.w700,
+              color: Color.fromARGB(255, 8, 102, 245),
             ),
           ),
         ),
       ),
-      body: SafeArea(
+      body:  SafeArea(
         child: Container(
           width: double.infinity,
           height: double.infinity,
@@ -95,69 +92,71 @@ class logIn extends StatelessWidget {
 
                 SizedBox(height: 20.h),
                 Obx(
-                  () => Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Password",
-                        style: TextStyle(
-                          fontSize: 22.sp,
-                          fontWeight: FontWeight.w700,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                  () => SizedBox(
+                    width: 350.w,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Password",
+                          style: TextStyle(
+                            fontSize: 22.sp,
+                            fontWeight: FontWeight.w700,
+                            color: Color.fromARGB(255, 0, 0, 0),
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 10.h),
-                      SizedBox(
-                        width: 350.w,
-                        height: 50.h,
-                        child: TextField(
-                          controller: loginController.passwordController,
-                          obscureText: loginController.obscureText.value,
-                          // controller: signUpController.password,
-                          decoration: InputDecoration(
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                loginController.obscureText.value
-                                    ? Icons.visibility_off
-                                    : Icons.visibility,
-                                color: Color.fromARGB(255, 60, 137, 224),
+                        SizedBox(height: 10.h),
+                        SizedBox(
+                          width: 350.w,
+                          height: 50.h,
+                          child: TextField(
+                            controller: loginController.passwordController,
+                            obscureText: loginController.obscureText.value,
+                            // controller: signUpController.password,
+                            decoration: InputDecoration(
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  loginController.obscureText.value
+                                      ? Icons.visibility_off
+                                      : Icons.visibility,
+                                  color: Color.fromARGB(255, 60, 137, 224),
+                                ),
+                                onPressed: () {
+                                  loginController.togglePasswordVisibility();
+                                },
                               ),
-                              onPressed: () {
-                                loginController.togglePasswordVisibility();
-                              },
-                            ),
 
-                            filled: true,
-                            fillColor: Color.fromARGB(66, 177, 211, 255),
-                            hintStyle: TextStyle(
-                              color: Color.fromARGB(255, 60, 137, 224),
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.w400,
-                            ),
-                            hintText: '********',
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12.r),
-                            ),
-                          ),
-                        ),
-                      ),
-                      
-                      Padding(
-                        padding: EdgeInsets.only(left: 220.w),
-                        child: TextButton(
-                          onPressed: () {
-                            Get.to(() => ForgetPassword());
-                          },
-                          child: Text(
-                            "Forget Password",
-                            style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 14.sp,
+                              filled: true,
+                              fillColor: Color.fromARGB(66, 177, 211, 255),
+                              hintStyle: TextStyle(
+                                color: Color.fromARGB(255, 60, 137, 224),
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
+                              hintText: '********',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12.r),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () {
+                              Get.to(() => ForgetPassword());
+                            },
+                            child: Text(
+                              "Forget Password",
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 14.sp,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: 20.h),
