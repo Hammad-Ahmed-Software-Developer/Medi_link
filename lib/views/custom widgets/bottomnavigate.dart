@@ -7,7 +7,7 @@ class custombottom_navigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(50.0.r),
+      padding: EdgeInsets.only(bottom: 40.h,left: 20.w, right: 20.w),
       child: Container(
         width: 50.w,
         height: 50.h,
