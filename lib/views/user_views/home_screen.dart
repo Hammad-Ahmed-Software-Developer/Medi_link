@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:medi_link/views/custom%20widgets/bottomnavigate.dart';
 import 'package:medi_link/views/custom%20widgets/custom_app_widget.dart';
-import 'package:medi_link/views/custom%20widgets/drawer.dart';
+// import 'package:medi_link/views/custom%20widgets/drawer.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});

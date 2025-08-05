@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medi_link/views/auth/signup/login.dart';
 import 'package:medi_link/views/user_views/home_screen.dart';
-import 'package:medi_link/views/splash%20screen/second_splash.dart';
+// import 'package:medi_link/views/splash%20screen/second_splash.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
@@ -12,6 +12,8 @@ class AppDrawer extends StatelessWidget {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
+        
+        
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
