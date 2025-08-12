@@ -36,7 +36,7 @@ class splash_2 extends StatelessWidget {
             ),
             SizedBox(height: 100.h),
             Center(
-              child: Container(
+              child: SizedBox(
                 width: 350.w,
                 // height: 100.h,
                 child: Text(
@@ -52,7 +52,7 @@ class splash_2 extends StatelessWidget {
               ),
             ),
             SizedBox(height: 50.h),
-            Container(
+            SizedBox(
               width: 250.w,
               height: 60.h,
               child: ElevatedButton(
@@ -67,7 +67,7 @@ class splash_2 extends StatelessWidget {
               ),
             ),
             SizedBox(height: 15.h),
-            Container(
+            SizedBox(
               width: 250.w,
               height: 60.h,
               child: ElevatedButton(

@@ -8,6 +8,7 @@ class Sign_up extends StatelessWidget {
 
   final signUpController = Get.put(SignupController());
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/route_manager.dart';
 import 'package:medi_link/views/custom%20widgets/bottomnavigate.dart';
 import 'package:medi_link/views/custom%20widgets/custom_app_widget.dart';
+import 'package:medi_link/views/setting_views/general_setting.dart';
 // import 'package:medi_link/views/custom%20widgets/drawer.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -25,7 +27,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Container(
+              SizedBox(
                 width: double.infinity,
                 height: 150.0.h,
                 child: Stack(
@@ -85,6 +87,7 @@ class HomeScreen extends StatelessWidget {
                           IconButton(
                             icon: Icon(Icons.settings),
                             onPressed: () {
+                              Get.to(SettingsPage());
                               // Handle settings icon press
                             },
                           ),
@@ -94,7 +97,7 @@ class HomeScreen extends StatelessWidget {
                     Positioned(
                       bottom: 20.0.h,
                       left: 30.0.w,
-                      child: Container(
+                      child: SizedBox(
                         width: 350.0.w,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -124,7 +127,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            Container(
+                            SizedBox(
                               width: 250.w,
                               height: 40.h,
                               child: TextField(
@@ -215,7 +218,7 @@ class HomeScreen extends StatelessWidget {
                   child: ListView.builder(
                     itemCount: 6,
                     itemBuilder: (BuildContext context, int index) {
-                      return appointmentSlot(); 
+                      return appointmentSlot();
                     },
                   ),
                 ),
@@ -227,8 +230,6 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: custombottom_navigation(),
     );
   }
-
- 
 
   Widget appointmentSlot() {
     return Card(
@@ -350,12 +351,12 @@ class HomeScreen extends StatelessWidget {
               right: 70.w,
               child: CircleAvatar(
                 radius: 15.r, // size of the circle
-                backgroundColor:  Colors.white, // background color
+                backgroundColor: Colors.white, // background color
                 child: Icon(
                   Icons.question_mark,
                   // icon color
                   size: 15.sp,
-                 color:   Colors.blue,
+                  color: Colors.blue,
                 ),
               ),
             ),
@@ -364,12 +365,12 @@ class HomeScreen extends StatelessWidget {
               right: 30.w,
               child: CircleAvatar(
                 radius: 15.r, // size of the circle
-                backgroundColor:  Colors.white, // background color
+                backgroundColor: Colors.white, // background color
                 child: Icon(
                   Icons.favorite_border,
                   // icon color
                   size: 15.sp,
-                 color:   Colors.blue,
+                  color: Colors.blue,
                 ),
               ),
             ),

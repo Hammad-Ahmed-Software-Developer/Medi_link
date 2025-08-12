@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:medi_link/controller/auth%20controller/login_controller.dart';
 import 'package:medi_link/views/auth/signup/forget_password.dart';
 import 'package:medi_link/views/auth/signup/signup.dart';
-import 'package:flutter/foundation.dart';
 
 class logIn extends StatelessWidget {
   logIn({super.key});

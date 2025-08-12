@@ -5,7 +5,7 @@ import 'package:medi_link/views/user_views/home_screen.dart';
 // import 'package:medi_link/views/splash%20screen/second_splash.dart';
 
 class AppDrawer extends StatelessWidget {
-  const AppDrawer({Key? key}) : super(key: key);
+  const AppDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
