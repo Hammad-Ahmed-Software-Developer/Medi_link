@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:medi_link/model/api/signup_Api.dart';
@@ -54,18 +54,29 @@ class LoginController extends GetxController {
         password: passwordController.text,
       ),
     );
-    if (response['success'] == "true") {
+    if (response['success'] == true) {
+      var jwt_token = response['token'];
+      final storage = FlutterSecureStorage();
+
+      Future<void> saveToken(String token) async {
+        await storage.write(key: "jwt_token", value: token);
+      }
+
+      await saveToken(jwt_token);
+      print("Token saved successfully in secure storage $jwt_token");
+
       // Handle successful signup
-      Get.snackbar('Success', 'User signed up successfully');
-      Future.delayed(Duration(seconds: 2), () {
-        isLoading.value = false;
-      });
+      // Get.snackbar('Success', 'User signed up successfully');
+      // Future.delayed(Duration(seconds: 2), () {
+      //   isLoading.value = false;
+      // });
       Get.offAll(() => HomeScreen());
 
       // Navigate to another page or perform any other action
     } else {
       print(response['success']);
       print(response['message']);
+
       // debugger();
 
       Get.snackbar('Error', response['message'] ?? 'Signup failed');

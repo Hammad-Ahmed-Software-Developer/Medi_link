@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:medi_link/views/auth/signup/login.dart';
 import 'package:medi_link/views/setting_views/notification_setting.dart';
 import 'package:medi_link/views/setting_views/password_manager.dart';
 // import 'package:medi_link/views/user_views/home_screen.dart';
@@ -28,6 +29,11 @@ class SettingsPage extends StatelessWidget {
       "icon": Icons.person_outline,
       "text": "Delete Account",
       "onTap": () => print("Delete Account Clicked"),
+    },
+    {
+      "icon": Icons.logout,
+      "text": "logout",
+      "onTap": () => Get.offAll(logIn()),
     },
   ];
 

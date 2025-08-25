@@ -8,20 +8,20 @@ class passwordManagerController extends GetxController {
   TextEditingController currentPasswordController = TextEditingController();
   TextEditingController newPasswordController = TextEditingController();
   TextEditingController confirmNewPasswordController = TextEditingController();
-  var isCurrentPasswordVisible = true.obs;
-  var isNewPasswordVisible = true.obs;
-  var isConfirmPasswordVisible = true.obs;
-  Future<void> togglePasswordVisibility() async {
-    isCurrentPasswordVisible.value = !isCurrentPasswordVisible.value;
+  var isCurrentPasswordVisible = false.obs;
+  var isNewPasswordVisible = false.obs;
+  var isConfirmPasswordVisible = false.obs;
+  Future<void> togglePasswordVisibility(RxBool visibility) async {
+    visibility.value = !visibility.value;
   }
 
-  Future<void> togglePassworddVisibility() async {
-    isNewPasswordVisible.value = !isNewPasswordVisible.value;
-  }
+  // Future<void> togglePassworddVisibility() async {
+  //   isNewPasswordVisible.value = !isNewPasswordVisible.value;
+  // }
 
-  Future<void> togglePasswordddVisibility() async {
-    isConfirmPasswordVisible.value = !isConfirmPasswordVisible.value;
-  }
+  // Future<void> togglePasswordddVisibility() async {
+  //   isConfirmPasswordVisible.value = !isConfirmPasswordVisible.value;
+  // }
 
   Future<void> changePassword() async {
     if (currentPasswordController.text.isEmpty ||

@@ -57,7 +57,9 @@ class PasswordManager extends StatelessWidget {
                                 color: Color.fromARGB(255, 60, 137, 224),
                               ),
                               onPressed: () {
-                                passwordController.togglePasswordVisibility();
+                                passwordController.togglePasswordVisibility(
+                                  passwordController.isCurrentPasswordVisible,
+                                );
                               },
                             ),
                             filled: true,
@@ -121,7 +123,9 @@ class PasswordManager extends StatelessWidget {
                                 color: Color.fromARGB(255, 60, 137, 224),
                               ),
                               onPressed: () {
-                                passwordController.togglePassworddVisibility();
+                                passwordController.togglePasswordVisibility(
+                                  passwordController.isNewPasswordVisible,
+                                );
                               },
                             ),
                             filled: true,
@@ -176,8 +180,10 @@ class PasswordManager extends StatelessWidget {
                                     color: Color.fromARGB(255, 60, 137, 224),
                                   ),
                                   onPressed: () {
-                                    passwordController
-                                        .togglePasswordddVisibility();
+                                    passwordController.togglePasswordVisibility(
+                                      passwordController
+                                          .isConfirmPasswordVisible,
+                                    );
                                   },
                                 ),
                                 filled: true,

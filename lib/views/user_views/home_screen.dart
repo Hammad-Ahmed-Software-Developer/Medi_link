@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
+// import 'package:get/route_manager.dart';
+import 'package:medi_link/controller/user%20controller/home_screen_controller.dart';
 import 'package:medi_link/views/custom%20widgets/bottomnavigate.dart';
 import 'package:medi_link/views/custom%20widgets/custom_app_widget.dart';
 import 'package:medi_link/views/setting_views/general_setting.dart';
@@ -8,13 +10,7 @@ import 'package:medi_link/views/setting_views/general_setting.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
-
-  final List<int> days = List.generate(
-    6,
-    (index) => DateTime.now().add(Duration(days: index)).day,
-  );
-
-  final List<String> weekDays = ["MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  var homeController = Get.put((HomeScreenController()));
 
   @override
   Widget build(BuildContext context) {
@@ -54,15 +50,17 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned(
-                      top: 50.0.h,
-                      left: 100.0.w,
-                      child: Text(
-                        'John Doe',
-                        style: TextStyle(
-                          fontSize: 14.0.sp,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                    Obx(
+                      () => Positioned(
+                        top: 50.0.h,
+                        left: 100.0.w,
+                        child: Text(
+                          "${homeController.name}",
+                          style: TextStyle(
+                            fontSize: 14.0.sp,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 0, 0, 0),
+                          ),
                         ),
                       ),
                     ),
@@ -154,62 +152,68 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                height: 250.0.h,
-                color: Color.fromARGB(206, 121, 157, 211),
-                padding: EdgeInsets.symmetric(vertical: 14.0.r),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: List.generate(6, (index) {
-                        final isSelected = index == 2;
-                        return Container(
-                          width: 45.0.w,
-                          padding: EdgeInsets.symmetric(vertical: 20.r),
-                          decoration: BoxDecoration(
-                            color:
-                                isSelected ? Color(0xFF3D6AFF) : Colors.white,
-                            borderRadius: BorderRadius.circular(20.0.r),
-                          ),
-                          child: Column(
-                            children: [
-                              Text(
-                                "${days[index]}",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 22.0.sp,
-                                  color:
-                                      isSelected ? Colors.white : Colors.black,
+              Obx(
+                () => Container(
+                  height: 250.0.h,
+                  color: Color.fromARGB(206, 121, 157, 211),
+                  padding: EdgeInsets.symmetric(vertical: 14.0.r),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: List.generate(6, (index) {
+                          final isSelected = index == 3;
+                          return Container(
+                            width: 45.0.w,
+                            padding: EdgeInsets.symmetric(vertical: 20.r),
+                            decoration: BoxDecoration(
+                              color:
+                                  isSelected ? Color(0xFF3D6AFF) : Colors.white,
+                              borderRadius: BorderRadius.circular(20.0.r),
+                            ),
+                            child: Column(
+                              children: [
+                                Text(
+                                  "${homeController.days[index]}",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 22.0.sp,
+                                    color:
+                                        isSelected
+                                            ? Colors.white
+                                            : Colors.black,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(height: 4.0.h),
-                              Text(
-                                weekDays[index],
-                                style: TextStyle(
-                                  fontSize: 12.0.sp,
-                                  color:
-                                      isSelected ? Colors.white : Colors.black,
+                                SizedBox(height: 4.0.h),
+                                Text(
+                                  homeController.weekDays[index],
+                                  style: TextStyle(
+                                    fontSize: 12.0.sp,
+                                    color:
+                                        isSelected
+                                            ? Colors.white
+                                            : Colors.black,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        );
-                      }),
-                    ),
-                    SizedBox(height: 10.0.h),
-                    Container(
-                      // height: 110.0.h,
-                      // width: 350.0.w,
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                        borderRadius: BorderRadius.circular(20.r),
+                              ],
+                            ),
+                          );
+                        }),
                       ),
-                      child: TimeSlotWidget(),
-                    ),
-                  ],
+                      SizedBox(height: 10.0.h),
+                      Container(
+                        // height: 110.0.h,
+                        // width: 350.0.w,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: BorderRadius.circular(20.r),
+                        ),
+                        child: TimeSlotWidget(),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Expanded(
